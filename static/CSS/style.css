@@ -1,0 +1,27 @@
+/**********/
+/**      **/
+/**GLOBAL**/
+/**      **/
+/**********/
+
+body{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #EEA47FFF;
+    color: #00539CFF;
+}
+
+h1{
+    padding: 15px;
+}
+footer{
+    color: black;
+}
+.images{
+    width: 80%;
+    margin: auto;
+    padding-top: 50px;
+}
+.images-col{
+    border-radius: 10px;
+    overflow: hidden;
+}
