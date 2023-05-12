@@ -1,0 +1,9 @@
+{%extends "layout.html"%}
+{%block content%}
+<h1>Recipes</h1>
+<h1></h1>
+{% for item in results%}
+    <h2><a href="Recipes/{{item[0]}}">{{item[1]}}</a></h2><p>{{item[4]}}</p>
+{%endfor%}
+
+{%endblock%} 
