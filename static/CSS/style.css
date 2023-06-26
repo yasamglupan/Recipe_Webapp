@@ -62,7 +62,7 @@ nav img{
     content: '';
     width: 0%;
     height: 2px;
-    background: #fbeec1;
+    background: #daad86;
     display: block;
     margin: auto;
     transition: 0.5s;
@@ -100,6 +100,6 @@ nav img{
 }
 .hero-btn:hover{
     border: 1px solid white;
-    background: #8d8741;
+    background: #bc986a;
     transition: 1s;
 }
