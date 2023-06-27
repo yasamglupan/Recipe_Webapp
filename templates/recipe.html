@@ -1,17 +1,20 @@
 {%extends "layout.html"%}
 {%block content%}
-<h1>{{Recipes[1]}}</h1>
-<p>{{Recpies[2]}}</p>
+<div class="text-box">
+    <h1>{{recipe[1]}}</h1>
+    <p>Prep Time : {{recipe[2]}} min</p>
+    <p>Difficulty : {{recipe[3]}}/5</p>
+    <p>Cooking Time : {{recipe[5]}} min</p>
+    <p>{{recipe[4]}}</p>
+    <h1>Instructions</h1>
+    <p>{{recipe[6]}}</p>
 
-<h2>ingredients</h2>
-<p>{{base[0]}}</p>
+    <h1>Ingredients</h1>
+    {% for item in recipe_ingredients%}
+        <p>{{item[0]}}</p>
+    {%endfor%}
 
-<h2>ingredients</h2>
-{% for item in ingredients%}
-    <p>{{item[0]}}</p>
-{%endfor%}
-<div class="images-col">
-    <img src = "{{recipes[3]}}"/>
+    <!-- <img src = "{{recipe[8]}}"/> -->
 </div>
 
 {%endblock%}

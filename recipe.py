@@ -20,22 +20,23 @@ def about():
 def all_recipes():
     conn = sqlite3.connect('recipe.db')
     cur = conn.cursor()
-    cur.execute('SELECT * FROM Recipes')
+    cur.execute('SELECT * FROM Recipe')
     results = cur.fetchall()
     return render_template('all_recipes.html', results = results)
 
-@app.route('/recipes/<int:id>')
+@app.route('/recipe/<int:id>')
 def recipe(id):
     conn = sqlite3.connect('recipe.db')
     cur = conn.cursor()
-    cur.execute('SELECT * FROM Recipes WHERE id=?',(id,))
+    cur.execute('SELECT * FROM Recipe WHERE recipe_id=?',(id,))
     recipe = cur.fetchone()
-    cur.execute('SELECT name FROM Recipe_Ingredients WHERE id=?',(recipe[4],))
-    base = cur.fetchone()
-    cur.execute('SELECT name FROM Toppings WHERE id IN(SELECT tid FROM PizzaToppings WHERE pid=?)',(id,))
-    toppings = cur.fetchall()
+    print (recipe)
+    # cur.execute('SELECT name FROM Recipe_Ingredients WHERE id=?',(recipe[4],))
+    # base = cur.fetchone()
+    # cur.execute('SELECT name FROM Toppings WHERE id IN(SELECT tid FROM PizzaToppings WHERE pid=?)',(id,))
+    # toppings = cur.fetchall()
     
-    return render_template('recipe.html', recipe = recipe, base = base, toppings = toppings)
+    return render_template('recipe.html', recipe = recipe)
 
 if __name__ == "__main__":
     app.run(debug=True)
