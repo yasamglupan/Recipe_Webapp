@@ -6,15 +6,20 @@
     <p>Difficulty : {{recipe[3]}}/5</p>
     <p>Cooking Time : {{recipe[5]}} min</p>
     <p>{{recipe[4]}}</p>
+
+    <h1>Ingredients</h1>
+    <ul>
+        {% for item in ingredients %}
+          <li>{{item[0]}}</li>
+        {% endfor %}
+    </ul>
+
     <h1>Instructions</h1>
     <p>{{recipe[6]}}</p>
 
-    <h1>Ingredients</h1>
-    {% for item in recipe_ingredients%}
-        <p>{{item[0]}}</p>
-    {%endfor%}
-
     <!-- <img src = "{{recipe[8]}}"/> -->
+
 </div>
+
 
 {%endblock%}

@@ -31,12 +31,10 @@ def recipe(id):
     cur.execute('SELECT * FROM Recipe WHERE recipe_id=?',(id,))
     recipe = cur.fetchone()
     print (recipe)
-    # cur.execute('SELECT name FROM Recipe_Ingredients WHERE id=?',(recipe[4],))
-    # base = cur.fetchone()
-    # cur.execute('SELECT name FROM Toppings WHERE id IN(SELECT tid FROM PizzaToppings WHERE pid=?)',(id,))
-    # toppings = cur.fetchall()
+    cur.execute('SELECT name FROM Ingredients WHERE id IN(SELECT ingredient_id FROM Recipe_Ingredients WHERE recipe_id=?)',(id,))
+    ingredients = cur.fetchall()
     
-    return render_template('recipe.html', recipe = recipe)
+    return render_template('recipe.html', recipe = recipe, ingredients = ingredients)
 
 if __name__ == "__main__":
     app.run(debug=True)
