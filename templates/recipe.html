@@ -12,8 +12,9 @@
         {% endfor %}
     </ul>
 
+    {#Safe is used to bypass the flask security system and enable line breaks#}
     <h1>Instructions</h1>
-    <p>{{recipe[6]}}</p>
+    <p>{{recipe[6]|safe}}</p>
 
     <!-- <img src = "{{recipe[8]}}"/> -->
 

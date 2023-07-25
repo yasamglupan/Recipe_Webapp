@@ -1,21 +1,24 @@
 {%extends "layout.html"%}
 {%block content%}
-
+<div class="grid-container">
 {% for item in results %}
-<div class="text-box">
-    <section class="images_layer">
-        <div class="row">
-        <div class="images_layer-col">
-            <a href="recipe/{{item[0]}}">
-            <img src="{{item[8]}}">
-            <div class="layer">
-                <h3>{{item[1]}}</h3>
+<div class="grid-container">
+    <!-- <div class="text-box"> -->
+        <section class="images_layer">
+            <div class="row">
+            <div class="images_layer-col">
+                <a href="recipe/{{item[0]}}">
+                <img src="{{item[8]}}">
+                <div class="layer">
+                    <h3>{{item[1]}}</h3>
+                </div>
+                </a>
             </div>
-            </a>
-        </div>
-    </section>
+        </section>
+    <!-- </div> -->
 </div>
 {% endfor %}
+</div>
 
 
 
