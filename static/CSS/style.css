@@ -9,9 +9,8 @@ body{
     background-color: #659dbd;
     color: rgb(255, 255, 255);
 }
-
 h1{
-    padding: 5px;
+    padding: 10px;
     text-align: center;
 }
 h2{
@@ -89,7 +88,7 @@ nav img{
     left: 50%;
     transform: translate(-50%,-50%);
     text-align: center;
-    padding-top: 50px;
+    padding-top: 100px;
 }
 .text-box h1{
     font-size: 62px;
@@ -99,9 +98,11 @@ nav img{
 
 }
 .text-box p{
-    margin: 10px 0 40px;
+    margin: 10px 0px 40px;
     font-size: 14px;
 }
+
+/* Styling for the Visit us to know more button */
 .hero-btn{
     display: inline-block;
     text-decoration: none;
@@ -118,6 +119,7 @@ nav img{
     background: #bc986a;
     transition: 1s;
 }
+
 .layer{
     background: transparent;
     height: 100%;
@@ -150,7 +152,7 @@ nav img{
 .row{
     margin-top: 5%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 .images_layer{
     width: 80%;
@@ -171,8 +173,8 @@ nav img{
 }
 .grid-container {
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
-    padding: 10px;
+    grid-template-columns: auto auto auto;
+    padding: 5px;
 }
 .grid-item {
     background-color: rgba(255, 255, 255, 0.8);

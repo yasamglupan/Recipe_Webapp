@@ -1,16 +1,19 @@
 {%extends "layout.html"%}
 {%block content%}
-<div class="text-box">
+<div class="">
     <h1>{{recipe[1]}}</h1>
     <p>Prep Time : {{recipe[2]}} min | Difficulty : {{recipe[3]}}/5 | Cooking Time : {{recipe[5]}} min</p>
     <p>{{recipe[4]}}</p>
 
     <h1>Ingredients</h1>
-    <ul>
-        {% for item in ingredients %}
-          <li>{{item[0]}}</li>
-        {% endfor %}
-    </ul>
+      {% for item in ingredients %}
+        <p>• {{item[0]}}</p>
+      {% endfor %}
+
+      <!-- {% for item in quantity %}
+        <p>• {{item[0]}}</p>
+      {% endfor %} -->
+
 
     {#Safe is used to bypass the flask security system and enable line breaks#}
     <h1>Instructions</h1>

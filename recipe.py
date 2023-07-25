@@ -33,8 +33,11 @@ def recipe(id):
     print (recipe)
     cur.execute('SELECT name FROM Ingredients WHERE id IN(SELECT ingredient_id FROM Recipe_Ingredients WHERE recipe_id=?)',(id,))
     ingredients = cur.fetchall()
+    cur.execute('SELECT quantity, unit FROM Recipe_Ingredients WHERE recipe_id=?',(id,))
+    quantity = cur.fetchall
     
     return render_template('recipe.html', recipe = recipe, ingredients = ingredients)
 
 if __name__ == "__main__":
     app.run(debug=True)
+
