@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, request, url_for
 import sqlite3
 
 
@@ -34,9 +34,24 @@ def recipe(id):
     cur.execute('SELECT name FROM Ingredients WHERE id IN(SELECT ingredient_id FROM Recipe_Ingredients WHERE recipe_id=?)',(id,))
     ingredients = cur.fetchall()
     cur.execute('SELECT quantity, unit FROM Recipe_Ingredients WHERE recipe_id=?',(id,))
-    quantity = cur.fetchall
+    cur.execute('SELECT * FROM Review WHERE recipe_id=?',(id,))
+    reviews = cur.fetchall()
     
-    return render_template('recipe.html', recipe = recipe, ingredients = ingredients)
+    return render_template('recipe.html', recipe = recipe, ingredients = ingredients,reviews = reviews)
+
+
+@app.route('/recipes', methods=['POST']) 
+def add_recipes(): 
+    conn = sqlite3.connect('recipe.db') 
+    name = request.form['name'] 
+    review = request.form['review'] 
+    rating = request.form['rating']
+    recipe_id = request.form['recipe_id'] 
+    conn = sqlite3.connect('recipe.db') 
+    cursor = conn.cursor() 
+    cursor.execute('INSERT INTO Review (name, rating, review, recipe_id) VALUES (?, ?, ?, ?)', (name, rating, review, recipe_id)) 
+    conn.commit() 
+    return redirect(url_for("recipe", id=recipe_id))
 
 if __name__ == "__main__":
     app.run(debug=True)
