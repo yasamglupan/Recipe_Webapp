@@ -4,71 +4,94 @@
 /**      **/
 /**********/
 
-body{
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+/* General styles for the body */
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: #659dbd;
     color: rgb(255, 255, 255);
 }
-h1{
+
+/* Styles for level 1 headings (h1) */
+h1 {
     padding: 10px;
     text-align: center;
 }
-h2{
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+/* Styles for level 2 headings (h2) */
+h2 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: rgb(255, 255, 255);
     padding: 5px;
     text-align: center;
 }
-p{
+
+/* Styles for paragraphs (p) */
+p {
     text-align: center;
 }
-footer{
+
+/* Footer styles */
+footer {
     color: black;
 }
-.home{
+
+/* Home section styles */
+.home {
     min-height: 100vh;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)),url(/static/images/background.jpg);
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(/static/images/background.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    /* position: fixed; */
 }
-.images{
+
+/* Images section styles */
+.images {
     width: 80%;
     margin: auto;
     padding-top: 50px;
 }
-.images-col{
+
+/* Styles for image columns */
+.images-col {
     border-radius: 10px;
     overflow: hidden;
 }
-nav{
+
+/* Navigation styles */
+nav {
     display: flex;
     padding: 1.5% 2.25%;
     justify-content: space-between;
     align-items: center;
 }
-nav img{
+
+/* Logo styles */
+nav img {
     width: 150px;
 }
-.nav-links{
+
+/* Navigation links styles */
+.nav-links {
     flex: 1;
     text-align: center;
 }
-.nav-links ul li{
+
+.nav-links ul li {
     list-style: none;
     display: inline-block;
     padding: 0px 20px;
     position: sticky;
 }
-.nav-links ul li a{
+
+.nav-links ul li a {
     color: rgb(255, 255, 255);
     text-decoration: none;
     font-size: 15px;
 }
-.nav-links ul li::after{
+
+.nav-links ul li::after {
     content: '';
     width: 0%;
     height: 2px;
@@ -77,33 +100,38 @@ nav img{
     margin: auto;
     transition: 0.5s;
 }
-.nav-links ul li:hover::after{
+
+.nav-links ul li:hover::after {
     width: 100%;
 }
-.text-box{
+
+/* Text box styles */
+.text-box {
     width: 90%;
     color: white;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     text-align: center;
     padding-top: 100px;
 }
-.text-box h1{
+
+.text-box h1 {
     font-size: 62px;
 }
-.text-box li{
-    font-size: 14px;
 
+.text-box li {
+    font-size: 14px;
 }
-.text-box p{
+
+.text-box p {
     margin: 10px 0px 40px;
     font-size: 14px;
 }
 
-/* Styling for the Visit us to know more button */
-.hero-btn{
+/* Styling for the "Visit us to know more" button */
+.hero-btn {
     display: inline-block;
     text-decoration: none;
     color: white;
@@ -114,13 +142,15 @@ nav img{
     position: relative;
     cursor: pointer;
 }
-.hero-btn:hover{
+
+.hero-btn:hover {
     border: 1px solid white;
     background: #bc986a;
     transition: 1s;
 }
 
-.layer{
+/* Styles for the image layer */
+.layer {
     background: transparent;
     height: 100%;
     width: 100%;
@@ -129,11 +159,12 @@ nav img{
     left: 0;
     transition: 0.5s;
 }
-.layer:hover{
-    background: rgba(0, 0, 0, 0.6)
 
+.layer:hover {
+    background: rgba(0, 0, 0, 0.6);
 }
-.layer h3{
+
+.layer h3 {
     width: 100%;
     font-weight: 500;
     color: white;
@@ -145,32 +176,40 @@ nav img{
     opacity: 0;
     transition: 0.5s;
 }
-.layer:hover h3{
+
+.layer:hover h3 {
     bottom: 49%;
     opacity: 1;
 }
-.row{
+
+/* Styles for the image grid */
+.row {
     margin-top: 5%;
     display: flex;
     justify-content: center;
 }
-.images_layer{
+
+.images_layer {
     margin: auto;
     text-align: center;
 }
-.images_layer-col{
+
+.images_layer-col {
     flex-basis: 32%;
     border-radius: 10px;
     margin-bottom: 30px;
     position: relative;
     overflow: hidden;
 }
-.images_layer-col img{
+
+.images_layer-col img {
     width: 600px;
     height: 325px;
-    display: block;  
-    object-fit: cover;  
+    display: block;
+    object-fit: cover;
 }
+
+/* Styles for the grid container */
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto;
