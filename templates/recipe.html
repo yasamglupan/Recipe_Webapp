@@ -5,40 +5,26 @@
     <p>Prep Time : {{recipe[2]}} min | Difficulty : {{recipe[3]}}/5 | Cooking Time : {{recipe[5]}} min</p>
     <p>{{recipe[4]}}</p>
 
-    <h1>Ingredients</h1>
+    <!-- <h1>Ingredients</h1>
       {% for item in ingredients %}
         <p>• {{item[0]}}</p>
-      {% endfor %}
+      {% endfor %} -->
+    <h2>Ingredients</h2>
+    {%for item in ingredient%}
+    {% for measurement in quantity %} 
+    {% if measurement[1] == item[0] %}
+    
+    <p>• {{item[1]}} - {{measurement[2]}}</p>
+    {% endif %}
+    {% endfor %}
+    {%endfor%}
+    
 
     {#Safe is used to bypass the flask security system and enable line breaks#}
     <h1>Instructions</h1>
     <p>{{recipe[6]|safe}}</p>
 
-    <!-- <img src = "{{recipe[8]}}"/> -->
-    <h2>Reviews:
-        {% if reviews %}
-            <ul class="review-list">
-                {% for review in reviews %}
-                    {% if review[2] %}
-                        <li class="review-item">
-                            <strong>{{ review[1] }}</strong> (Rating: {{ review[2] }})
-                            <p>{{ review[3] }}</p>
-                        </li>
-                    {% else %}
-                        <li class="review-item">No rating provided. Review: <p>{{ review[3] }}</p></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-          </h2>
-        {% else %}
-            <h2>No reviews available for this movie.</h2>
-        {% endif %}
-    
-    <br>
-    <br>
-    
     <h2>Write A Review</h2>
-    
     <form action="/recipes" method="POST" class="review-form">
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" required><br>
@@ -65,4 +51,28 @@
       
         <input type="submit" value="Submit" class="submit-btn">
     </form>    
+
+
+    <h2>Reviews:
+        {% if reviews %}
+            <ul class="review-list">
+                {% for review in reviews %}
+                    {% if review[2] %}
+                        <h4 class="review-item">
+                            <strong>{{ review[1] }} | </strong> {{ review[2] }}/10
+                            <p>{{ review[3] }}</p>
+                        </h4>
+                    {% else %}
+                        <h4 class="review-item">No rating provided. Review: <p>{{ review[3] }}</p></h4>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+          </h2>
+        {% else %}
+            <h2>No reviews available for this recipe.</h2>
+        {% endif %}
+    
+    <br>
+    <br>
+    
 {%endblock%}
