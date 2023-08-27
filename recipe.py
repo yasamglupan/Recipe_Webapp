@@ -53,5 +53,10 @@ def add_recipes():
     conn.commit() 
     return redirect(url_for("recipe", id=recipe_id))
 
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('404.html'), 404
+
 if __name__ == "__main__":
     app.run(debug=True)

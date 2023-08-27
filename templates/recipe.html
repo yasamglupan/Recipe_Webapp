@@ -5,20 +5,26 @@
     <p>Prep Time : {{recipe[2]}} min | Difficulty : {{recipe[3]}}/5 | Cooking Time : {{recipe[5]}} min</p>
     <p>{{recipe[4]}}</p>
 
-    <!-- <h1>Ingredients</h1>
+    <h1>Ingredients</h1>
       {% for item in ingredients %}
         <p>• {{item[0]}}</p>
-      {% endfor %} -->
+      {% endfor %}
+
     <h2>Ingredients</h2>
     {%for item in ingredient%}
     {% for measurement in quantity %} 
-    {% if measurement[1] == item[0] %}
-    
-    <p>• {{item[1]}} - {{measurement[2]}}</p>
-    {% endif %}
+        {% if measurement[1] == item[0] %}
+            <p>• {{item[1]}} - {{measurement[2]}}</p>
+        {% endif %}
     {% endfor %}
     {%endfor%}
-    
+
+    <h1>Ingredients</h1>
+    {% for item in ingredients%}
+        {% for measurement in quantity %}
+        <p>• {{item[0]}} - {{measurement[2]}}</p>
+        {% endfor %}
+    {% endfor %}
 
     {#Safe is used to bypass the flask security system and enable line breaks#}
     <h1>Instructions</h1>
@@ -76,3 +82,9 @@
     <br>
     
 {%endblock%}
+
+
+
+ 
+
+

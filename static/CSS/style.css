@@ -204,7 +204,7 @@ nav img {
 /* Styles for the grid container */
 .grid-container {
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto;
     padding: 20px;
   }
 
@@ -263,4 +263,3 @@ nav img {
 .review-form {
     text-align: center;
 }
-
