@@ -7,9 +7,17 @@ app = Flask (__name__)
 def home():
     return render_template("home.html", title = "Home")
 
-@app.route('/contact')
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
-    return render_template("contact.html", title = "Contact")
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        message = request.form['message']
+        # Here you can process the contact form data, such as sending an email
+        return "Thank you for your message, " + name + "!"
+
+    return render_template('contact.html')
+
 
 @app.route('/about')
 def about():
