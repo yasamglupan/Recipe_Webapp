@@ -32,11 +32,12 @@ def recipe(id):
     print (recipe)
     cur.execute('SELECT name FROM Ingredients WHERE id IN(SELECT ingredient_id FROM Recipe_Ingredients WHERE recipe_id=?)',(id,))
     ingredients = cur.fetchall()
-    cur.execute('SELECT quantity, unit FROM Recipe_Ingredients WHERE recipe_id=?',(id,))
+    cur.execute("SELECT * FROM Recipe_Ingredients WHERE recipe_id=?", (recipe[0],))
+    quantity = cur.fetchall()
     cur.execute('SELECT * FROM Review WHERE recipe_id=?',(id,))
     reviews = cur.fetchall()
     
-    return render_template('recipe.html', recipe = recipe, ingredients = ingredients,reviews = reviews)
+    return render_template('recipe.html', recipe = recipe, ingredients = ingredients,reviews = reviews,quantity=quantity)
 
 
 @app.route('/recipes', methods=['POST']) 
@@ -52,6 +53,10 @@ def add_recipes():
     conn.commit() 
     return redirect(url_for("recipe", id=recipe_id))
 
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('404.html'), 404
+
 if __name__ == "__main__":
     app.run(debug=True)
-
