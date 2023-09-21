@@ -6,28 +6,31 @@
     <p>{{recipe[4]}}</p>
 
     <h1>Ingredients</h1>
-      {% for item in ingredients %}
+    {% for item in ingredients %}
         <p>• {{item[0]}} - {{item[1]}}</p>
-      {% endfor %}
+    {% endfor %}
 
-    {#Safe is used to bypass the flask security system and enable line breaks#}
+    {# Safe is used to bypass the Flask security system and enable line breaks #}
     <h1>Instructions</h1>
-    <p> {{recipe[6]|safe}}</p>
+    <p>{{recipe[6]|safe}}</p>
 
     <h2>Write A Review</h2>
     <form action="/recipes" method="POST" class="review-form">
+        <!-- Input field for Name -->
         <label for="name">Name:</label>
         <div class="input-container">
             <input type="text" name="name" id="name" maxlength="40" required>
             <p class="character-count"><span id="name-char-count">0</span>/40</p>
         </div>
     
+        <!-- Input field for Review -->
         <label for="review">Review:</label>
         <div class="input-container">
             <input type="text" name="review" id="review" rows="3" maxlength="300" required>
             <p class="character-count"><span id="review-char-count">0</span>/300</p>
         </div>
     
+        <!-- Dropdown for Rating -->
         <label for="rating">Rating:</label>
         <div class="input-container">
             <select name="rating" id="rating">
@@ -41,14 +44,17 @@
                 <option value="8">8</option>
                 <option value="9">9</option>
                 <option value="10">10</option>
+                <!-- ... (options 1-10) ... -->
             </select>
         </div>
     
-        <!-- The recipe_id is passed as a hidden input -->
+        <!-- Hidden input to pass recipe_id -->
         <input type="hidden" name="recipe_id" id="recipe_id" value="{{ recipe[0] }}" required>
     
+        <!-- Submit button -->
         <input type="submit" value="Submit" class="submit-btn">
     </form>
+    <!-- JavaScript for character count -->
     <script>
         const nameInput = document.getElementById("name");
         const reviewInput = document.getElementById("review"); // Changed the id to match the input field
@@ -63,32 +69,27 @@
             reviewCharCount.textContent = reviewInput.value.length; // Updated to use reviewInput
         });
     </script>
-    
-
 
     <h2>Reviews:
         {% if reviews %}
             <ul class="review-list">
                 {% for review in reviews %}
                     {% if review[2] %}
+                        <!-- Display rating if available -->
                         <h4 class="review-item">
                             <strong>{{ review[1] }} | </strong> {{ review[2] }}/10
                             <p>{{ review[3] }}</p>
                         </h4>
                     {% else %}
+                        <!-- Display message if no rating provided -->
                         <h4 class="review-item">No rating provided. Review: <p>{{ review[3] }}</p></h4>
                     {% endif %}
                 {% endfor %}
             </ul>
           </h2>
         {% else %}
+            <!-- Display message if no reviews available -->
             <h2>No reviews available for this recipe.</h2>
         {% endif %}
-    
+</div>
 {%endblock%}
-
-
-
- 
-
-

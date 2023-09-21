@@ -1,5 +1,5 @@
-{%extends "layout.html"%}
-{%block content%}
+{% extends "layout.html" %}
+{% block content %}
 <head>
     <title>Contact Us</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
@@ -8,28 +8,37 @@
     <div class="container">
         <h1>Contact Us</h1>
         <p>If you have any questions or feedback, please feel free to get in touch with us!</p>
+        <!-- Contact form -->
         <form action="/contact" method="post">
+            <!-- Label and input field for Name -->
             <label for="name">Name:</label>
             <div class="input-container">
                 <input type="text" id="name" name="name" maxlength="40" required>
+                <!-- Character count for Name input -->
                 <p class="character-count"><span id="name-char-count">0</span>/40</p>
             </div>
 
+            <!-- Label and input field for Email -->
             <label for="email">Email:</label>
             <div class="input-container">
                 <input type="email" id="email" name="email" maxlength="50" required>
+                <!-- Character count for Email input -->
                 <p class="character-count"><span id="email-char-count">0</span>/50</p>
             </div>
 
+            <!-- Label and textarea for Message -->
             <label for="message">Message:</label>
             <div class="input-container">
                 <textarea id="message" name="message" rows="4" maxlength="400" required></textarea>
+                <!-- Character count for Message textarea -->
                 <p class="character-count"><span id="message-char-count">0</span>/400</p>
             </div>
 
+            <!-- Submit button for the form -->
             <input type="submit" value="Send" class="submit-btn">
         </form>
     </div>
+    <!-- JavaScript for character count in input fields -->
     <script>
         const nameInput = document.getElementById("name");
         const emailInput = document.getElementById("email");
@@ -38,20 +47,20 @@
         const emailCharCount = document.getElementById("email-char-count");
         const messageCharCount = document.getElementById("message-char-count");
 
+        // Event listener for Name input
         nameInput.addEventListener("input", () => {
             nameCharCount.textContent = nameInput.value.length;
         });
 
+        // Event listener for Email input
         emailInput.addEventListener("input", () => {
             emailCharCount.textContent = emailInput.value.length;
         });
 
+        // Event listener for Message textarea
         messageTextarea.addEventListener("input", () => {
             messageCharCount.textContent = messageTextarea.value.length;
         });
     </script>
 </body>
-
-
-
-{%endblock%}
+{% endblock %}

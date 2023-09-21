@@ -1,17 +1,22 @@
-{%extends "layout.html"%}
-{%block content%}
+{% extends "layout.html" %}
+{% block content %}
 <div class="flex-container">
-{% for item in results %}
-<section class="images_layer">
-    <div class="images_layer-col">
-        <a href="recipe/{{item[0]}}">
-        <img src="{{item[8]}}">
-        <div class="layer">
-            <h3>{{item[1]}}</h3>
+    <!-- Loop through a list of results -->
+    {% for item in results %}
+    <section class="images_layer">
+        <div class="images_layer-col">
+            <!-- Create a link to a recipe using its ID -->
+            <a href="recipe/{{ item[0] }}">
+                <!-- Display an image related to the recipe -->
+                <img src="{{ item[8] }}">
+                <!-- Create an overlay layer for additional information -->
+                <div class="layer">
+                    <!-- Display the name or title of the recipe -->
+                    <h3>{{ item[1] }}</h3>
+                </div>
+            </a>
         </div>
-        </a>
-    </div>
-</section>
-{% endfor %}
-</div>     
-{%endblock%} 
+    </section>
+    {% endfor %}
+</div>
+{% endblock %}
