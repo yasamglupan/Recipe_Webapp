@@ -1,6 +1,5 @@
 {%extends "layout.html"%}
 {%block content%}
-
 <head>
     <title>Contact Us</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
@@ -11,17 +10,48 @@
         <p>If you have any questions or feedback, please feel free to get in touch with us!</p>
         <form action="/contact" method="post">
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br>
+            <div class="input-container">
+                <input type="text" id="name" name="name" maxlength="40" required>
+                <p class="character-count"><span id="name-char-count">0</span>/40</p>
+            </div>
 
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br>
+            <div class="input-container">
+                <input type="email" id="email" name="email" maxlength="50" required>
+                <p class="character-count"><span id="email-char-count">0</span>/50</p>
+            </div>
 
             <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="4" required></textarea><br>
+            <div class="input-container">
+                <textarea id="message" name="message" rows="4" maxlength="400" required></textarea>
+                <p class="character-count"><span id="message-char-count">0</span>/400</p>
+            </div>
 
             <input type="submit" value="Send" class="submit-btn">
         </form>
     </div>
+    <script>
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const messageTextarea = document.getElementById("message");
+        const nameCharCount = document.getElementById("name-char-count");
+        const emailCharCount = document.getElementById("email-char-count");
+        const messageCharCount = document.getElementById("message-char-count");
+
+        nameInput.addEventListener("input", () => {
+            nameCharCount.textContent = nameInput.value.length;
+        });
+
+        emailInput.addEventListener("input", () => {
+            emailCharCount.textContent = emailInput.value.length;
+        });
+
+        messageTextarea.addEventListener("input", () => {
+            messageCharCount.textContent = messageTextarea.value.length;
+        });
+    </script>
 </body>
+
+
 
 {%endblock%}
